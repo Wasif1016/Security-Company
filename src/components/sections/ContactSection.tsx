@@ -85,13 +85,6 @@ export function ContactSection() {
     "Custom Security Solution"
   ];
 
-  const consultationIncludes = [
-    "Comprehensive security assessment",
-    "Professional recommendations",
-    "Customized service proposals",
-    "Transparent pricing with no hidden fees",
-    "Answers to all your security questions"
-  ];
 
   return (
     <section id="contact" className="py-20 bg-white">
@@ -114,7 +107,7 @@ export function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div>
-            <Card className="shadow-lg">
+            <Card className="h-full shadow-lg border-0 bg-white">
               <CardHeader>
                 <CardTitle className="text-2xl text-gray-900">
                   Free Security Consultation
@@ -245,21 +238,6 @@ export function ContactSection() {
                     )}
                   </Button>
                 </form>
-
-                {/* What's Included */}
-                <div className="mt-8 p-4 bg-gray-50 rounded-lg">
-                  <h4 className="font-semibold text-gray-900 mb-3">
-                    What's included in your consultation:
-                  </h4>
-                  <div className="space-y-2">
-                    {consultationIncludes.map((item, index) => (
-                      <div key={index} className="flex items-start space-x-2">
-                        <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-gray-600">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
               </CardContent>
             </Card>
           </div>
@@ -350,50 +328,13 @@ export function ContactSection() {
               </CardContent>
             </Card>
 
-            {/* Why Choose BK Security Today */}
-            <Card className="bg-blue-50 border-blue-200">
-              <CardHeader>
-                <CardTitle className="text-blue-800">Why Choose BK Security Today?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-blue-600" />
-                    <span className="text-blue-700">Immediate Response: We answer calls 24/7</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-blue-600" />
-                    <span className="text-blue-700">No Long-term Contracts: Flexible agreements</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-blue-600" />
-                    <span className="text-blue-700">Competitive Pricing: Fair, transparent rates</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-blue-600" />
-                    <span className="text-blue-700">Proven Results: Track record of success</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-blue-600" />
-                    <span className="text-blue-700">Professional Team: Licensed & insured</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
             {/* Trust Indicators */}
-            <div className="grid grid-cols-2 gap-4 text-center">
-              <div className="bg-white p-4 rounded-lg shadow-sm border">
-                <Award className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-                <div className="font-semibold text-gray-900">Licensed</div>
-                <div className="text-sm text-gray-600">Fully Certified</div>
-              </div>
-              <div className="bg-white p-4 rounded-lg shadow-sm border">
-                <Shield className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-                <div className="font-semibold text-gray-900">Insured</div>
-                <div className="text-sm text-gray-600">Comprehensive Coverage</div>
-              </div>
-            </div>
+         
+              
+
+  
+        
+            
           </div>
         </div>
       </div>

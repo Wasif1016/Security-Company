@@ -75,7 +75,7 @@ export function Footer() {
                 onClick={handleEmailContact}
                 variant="outline"
                 size="sm"
-                className="border-white text-white hover:bg-white hover:text-blue-600"
+                className="border-white text-black hover:bg-white hover:text-blue-600"
               >
                 <Mail className="h-4 w-4 mr-2" />
                 Email Us

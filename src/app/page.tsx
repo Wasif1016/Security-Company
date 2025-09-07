@@ -18,9 +18,9 @@ export default function Home() {
         <HeroSection />
         <ServicesSection />
         <WhyChooseUsSection />
-        <IndustriesSection />
+        {/* <IndustriesSection /> */}
         <ProcessSection />
-        <EmergencyResponseSection />
+        {/* <EmergencyResponseSection /> */}
         <TestimonialsSection />
         <ContactSection />
       </main>
