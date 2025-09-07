@@ -45,24 +45,41 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  
+  /* Security Theme Colors - Black, Blue, White */
+  --security-black: #000000;
+  --security-blue: #1e40af;
+  --security-blue-light: #3b82f6;
+  --security-blue-dark: #1e3a8a;
+  --security-white: #ffffff;
+  --security-gray-50: #f9fafb;
+  --security-gray-100: #f3f4f6;
+  --security-gray-600: #4b5563;
+  --security-gray-900: #111827;
+  
+  /* Emergency/Alert Colors */
+  --emergency-red: #dc2626;
+  --emergency-red-dark: #b91c1c;
+  
+  /* Base Theme */
+  --background: var(--security-white);
+  --foreground: var(--security-black);
+  --card: var(--security-white);
+  --card-foreground: var(--security-black);
+  --popover: var(--security-white);
+  --popover-foreground: var(--security-black);
+  --primary: var(--security-blue);
+  --primary-foreground: var(--security-white);
+  --secondary: var(--security-gray-100);
+  --secondary-foreground: var(--security-black);
+  --muted: var(--security-gray-50);
+  --muted-foreground: var(--security-gray-600);
+  --accent: var(--security-blue-light);
+  --accent-foreground: var(--security-white);
+  --destructive: var(--emergency-red);
+  --border: var(--security-gray-100);
+  --input: var(--security-gray-100);
+  --ring: var(--security-blue);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -118,5 +135,75 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  
+  /* Security Company Custom Styles */
+  .hero-gradient {
+    background: linear-gradient(135deg, var(--security-black) 0%, var(--security-blue-dark) 100%);
+  }
+  
+  .emergency-pulse {
+    animation: emergency-pulse 2s infinite;
+  }
+  
+  @keyframes emergency-pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+  
+  .service-card {
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--security-blue);
+  }
+  
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(30, 64, 175, 0.1);
+  }
+  
+  .process-step {
+    position: relative;
+  }
+  
+  .process-step::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+    width: 2px;
+    height: 40px;
+    background: var(--security-blue);
+    transform: translateX(-50%);
+  }
+  
+  .process-step:last-child::before {
+    display: none;
+  }
+  
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--security-gray-50);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--security-blue);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--security-blue-dark);
   }
 }
