@@ -14,6 +14,8 @@ import {
   PhoneCall,
   X
 } from "lucide-react";
+import Image from "next/image";
+
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -69,21 +71,13 @@ export function Header() {
             className="flex items-center space-x-2 group"
             onClick={() => scrollToSection("hero")}
           >
-            <div className="flex items-center justify-center w-10 h-10 bg-blue-600 rounded-lg group-hover:bg-blue-700 transition-colors">
-              <Shield className="h-6 w-6 text-white" />
-            </div>
-            <div className="flex flex-col">
-              <span className={`font-bold text-lg leading-tight ${
-                isScrolled ? "text-black" : "text-white"
-              }`}>
-                BK Security
-              </span>
-              <span className={`text-xs font-medium ${
-                isScrolled ? "text-blue-600" : "text-blue-200"
-              }`}>
-                Services
-              </span>
-            </div>
+            <Image 
+              src="/bK-SECURITY-LOGO-WHITE-BG.png" 
+              alt="BK Security" 
+              width={120}
+              height={60}
+              className="h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -172,9 +166,13 @@ export function Header() {
                 {/* Mobile Menu Header */}
                 <div className="flex items-center justify-between pb-6 border-b">
                   <div className="flex items-center space-x-2">
-                    <div className="flex items-center justify-center w-8 h-8 bg-blue-600 rounded-lg">
-                      <Shield className="h-5 w-5 text-white" />
-                    </div>
+                    <Image 
+                      src="/bK-SECURITY-LOGO-WHITE-BG.png" 
+                      alt="BK Security" 
+                      width={40}
+                      height={20}
+                      className="h-8 w-auto"
+                    />
                     <div className="flex flex-col">
                       <span className="font-bold text-black">BK Security</span>
                       <span className="text-xs text-blue-600">Services</span>

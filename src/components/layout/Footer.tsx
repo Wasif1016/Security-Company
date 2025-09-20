@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import Image from "next/image";
 import { 
   Shield, 
   Phone, 
@@ -94,9 +95,13 @@ export function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center space-x-2 mb-6">
-              <div className="flex items-center justify-center w-12 h-12 bg-blue-600 rounded-lg">
-                <Shield className="h-7 w-7 text-white" />
-              </div>
+              <Image 
+                src="/bK-SECURITY-LOGO-WHITE-BG.png" 
+                alt="BK Security" 
+                width={80}
+                height={40}
+                className="h-10 w-auto"
+              />
               <div className="flex flex-col">
                 <span className="font-bold text-xl text-white">BK Security</span>
                 <span className="text-sm text-blue-400">Services</span>
