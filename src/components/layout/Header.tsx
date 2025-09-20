@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Badge } from "@/components/ui/badge";
@@ -17,6 +18,7 @@ import {
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,11 +46,11 @@ export function Header() {
   };
 
   const navigationItems = [
-    { label: "Services", href: "#services" },
-    { label: "Why Choose Us", href: "#why-choose-us" },
-    { label: "Industries", href: "#industries" },
-    { label: "Process", href: "#process" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home", href: "/", type: "page" },
+    { label: "Services", href: "/services", type: "page" },
+    { label: "About", href: "/about", type: "page" },
+    { label: "Career", href: "/careers/application", type: "page" },
+    { label: "Contact", href: "#contact", type: "section" },
   ];
 
   return (
@@ -86,17 +88,44 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {navigationItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => scrollToSection(item.href.substring(1))}
-                className={`font-medium transition-colors hover:text-blue-600 ${
-                  isScrolled ? "text-gray-700" : "text-white"
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
+            {navigationItems.map((item) => {
+              if (item.type === "page") {
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className={`font-medium transition-colors hover:text-blue-600 ${
+                      pathname === item.href
+                        ? "text-blue-600"
+                        : isScrolled
+                        ? "text-gray-700"
+                        : "text-white"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              } else {
+                return (
+                  <button
+                    key={item.label}
+                    onClick={() => {
+                      if (pathname !== "/") {
+                        window.location.href = "/" + item.href;
+                      } else {
+                        scrollToSection(item.href.substring(1));
+                      }
+                    }}
+                    className={`font-medium transition-colors hover:text-blue-600 ${
+                      isScrolled ? "text-gray-700" : "text-white"
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                );
+              }
+            })}
           </nav>
 
           {/* Contact Buttons - Desktop */}
@@ -180,12 +209,32 @@ export function Header() {
                   <ul className="space-y-4">
                     {navigationItems.map((item) => (
                       <li key={item.label}>
-                        <button
-                          onClick={() => scrollToSection(item.href.substring(1))}
-                          className="w-full text-left p-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                        >
-                          {item.label}
-                        </button>
+                        {item.type === "page" ? (
+                          <Link
+                            href={item.href}
+                            className={`w-full text-left p-3 rounded-lg transition-colors block ${
+                              pathname === item.href
+                                ? "text-blue-600 bg-blue-50"
+                                : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+                            }`}
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {item.label}
+                          </Link>
+                        ) : (
+                          <button
+                            onClick={() => {
+                              if (pathname !== "/") {
+                                window.location.href = "/" + item.href;
+                              } else {
+                                scrollToSection(item.href.substring(1));
+                              }
+                            }}
+                            className="w-full text-left p-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                          >
+                            {item.label}
+                          </button>
+                        )}
                       </li>
                     ))}
                   </ul>

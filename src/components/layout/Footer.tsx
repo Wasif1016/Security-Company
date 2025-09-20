@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -16,6 +17,8 @@ import {
 } from "lucide-react";
 
 export function Footer() {
+  const pathname = usePathname();
+  
   const handleEmergencyCall = () => {
     window.location.href = "tel:6085933";
   };
@@ -32,12 +35,12 @@ export function Footer() {
   };
 
   const services = [
-    "Armed Security Guards",
-    "Unarmed Security Guards", 
-    "Executive Bodyguards",
-    "Cash in Transit",
-    "24/7 Monitoring",
-    "Secure Transportation"
+    { name: "Armed & Unarmed Security", href: "/services/armed-unarmed-security" },
+    { name: "Executive Bodyguards", href: "/services/executive-bodyguard" },
+    { name: "Cash in Transit", href: "/services/cash-in-transit" },
+    { name: "24/7 Monitoring", href: "/services/alarm-camera-monitoring" },
+    { name: "Secure Transportation", href: "/services" },
+    { name: "Armed & Unarmed Chauffeurs", href: "/services/chauffeurs" }
   ];
 
   const industries = [
@@ -87,7 +90,7 @@ export function Footer() {
 
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 lg:px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center space-x-2 mb-6">
@@ -121,18 +124,71 @@ export function Footer() {
             </div>
           </div>
 
+          {/* Navigation Links */}
+          <div>
+            <h3 className="font-semibold text-lg mb-6 text-white">Quick Links</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link
+                  href="/"
+                  className="text-gray-300 hover:text-blue-400 transition-colors"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services"
+                  className="text-gray-300 hover:text-blue-400 transition-colors"
+                >
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="text-gray-300 hover:text-blue-400 transition-colors"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/careers/application"
+                  className="text-gray-300 hover:text-blue-400 transition-colors"
+                >
+                  Career
+                </Link>
+              </li>
+              <li>
+                <button
+                  onClick={() => {
+                    if (pathname !== "/") {
+                      window.location.href = "/#contact";
+                    } else {
+                      scrollToSection("contact");
+                    }
+                  }}
+                  className="text-gray-300 hover:text-blue-400 transition-colors text-left"
+                >
+                  Contact
+                </button>
+              </li>
+            </ul>
+          </div>
+
           {/* Services */}
           <div>
             <h3 className="font-semibold text-lg mb-6 text-white">Our Services</h3>
             <ul className="space-y-3">
               {services.map((service) => (
-                <li key={service}>
-                  <button
-                    onClick={() => scrollToSection("services")}
-                    className="text-gray-300 hover:text-blue-400 transition-colors text-left"
+                <li key={service.name}>
+                  <Link
+                    href={service.href}
+                    className="text-gray-300 hover:text-blue-400 transition-colors"
                   >
-                    {service}
-                  </button>
+                    {service.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -145,7 +201,13 @@ export function Footer() {
               {industries.map((industry) => (
                 <li key={industry}>
                   <button
-                    onClick={() => scrollToSection("industries")}
+                    onClick={() => {
+                      if (pathname !== "/") {
+                        window.location.href = "/#industries";
+                      } else {
+                        scrollToSection("industries");
+                      }
+                    }}
                     className="text-gray-300 hover:text-blue-400 transition-colors text-left"
                   >
                     {industry}
