@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { 
   Shield, 
   User, 
@@ -38,7 +39,8 @@ export default function ServicesPage() {
       subtitle: "Professional protection for businesses, events, and residences.",
       description: "Our licensed guards act as both deterrents and rapid responders. Whether armed or unarmed, they are highly trained to handle threats, safeguard assets, and provide peace of mind around the clock.",
       icon: Shield,
-      image: "https://images.unsplash.com/photo-1566492031773-4f4e44671d66?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/front-view-guard-men-team-work.jpg",
+      url: "/services/armed-unarmed-security",
       features: [
         "Licensed and certified security personnel",
         "24/7 on-site protection",
@@ -53,7 +55,8 @@ export default function ServicesPage() {
       subtitle: "Discreet personal protection for executives and families.",
       description: "We specialize in close protection, threat assessment, and secure travel planning. Our bodyguards ensure your safety in public and private settings—without disrupting your lifestyle.",
       icon: User,
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/young-male-being-uber-driver-female-client.jpg",
+      url: "/services/executive-bodyguard",
       features: [
         "Personal protection specialists",
         "Threat assessment and planning",
@@ -69,6 +72,7 @@ export default function ServicesPage() {
       description: "With armed escorts and reinforced vehicles, our cash-in-transit service protects your money, documents, and assets during transfers. Every operation is covered with strict protocols and insurance for maximum security.",
       icon: Truck,
       image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      url: "/services/cash-in-transit",
       features: [
         "Armored vehicle transport",
         "Armed escort services",
@@ -84,6 +88,7 @@ export default function ServicesPage() {
       description: "Our monitoring team keeps eyes on your property day and night. From alarm alerts to live camera feeds, we provide real-time oversight and rapid emergency dispatch when needed.",
       icon: Monitor,
       image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      url: "/services/alarm-camera-monitoring",
       features: [
         "24/7 monitoring center",
         "Real-time alert response",
@@ -99,6 +104,7 @@ export default function ServicesPage() {
       description: "Whether for business or personal needs, our secure transportation combines safety, efficiency, and discretion. Security-trained drivers follow route planning strategies to minimize risks and ensure smooth journeys.",
       icon: Car,
       image: "https://images.unsplash.com/photo-1563720223185-11003d516935?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      url: "/services",
       features: [
         "Security-trained drivers",
         "Route risk assessment",
@@ -113,7 +119,8 @@ export default function ServicesPage() {
       subtitle: "Luxury travel with built-in protection.",
       description: "Our chauffeurs are trained in both driving and security, giving you the confidence of safe travel with the comfort of premium vehicles. Armed or unarmed options are available based on your needs.",
       icon: Users,
-      image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/parking-valet-helping-woman-park-her-car.jpg",
+      url: "/services/chauffeurs",
       features: [
         "Dual-trained chauffeurs",
         "Luxury vehicle options",
@@ -129,7 +136,7 @@ export default function ServicesPage() {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="relative py-24 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+        <section className="relative pt-40 pb-24 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
           <div className="container mx-auto px-4 lg:px-6">
             <div className="text-center max-w-4xl mx-auto">
               <Badge variant="secondary" className="mb-4 bg-white/20 text-white border-white/30">
@@ -143,19 +150,10 @@ export default function ServicesPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
-                  onClick={handleConsultation}
-                  size="lg" 
-                  variant="secondary"
-                  className="bg-white text-blue-600 hover:bg-gray-100"
-                >
-                  Get Free Consultation
-                  <ArrowRight className="h-5 w-5 ml-2" />
-                </Button>
-                <Button 
                   onClick={handleEmergencyCall}
                   size="lg" 
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-blue-600"
+                  className="border-white text-blue-900 hover:bg-white hover:text-blue-900"
                 >
                   <Phone className="h-5 w-5 mr-2" />
                   Call 6085933
@@ -209,13 +207,14 @@ export default function ServicesPage() {
                       ))}
                     </div>
 
-                    <Button 
-                      onClick={handleConsultation}
-                      className="bg-blue-600 hover:bg-blue-700 text-white"
-                    >
-                      Learn More
-                      <ArrowRight className="h-4 w-4 ml-2" />
-                    </Button>
+                    <Link href={service.url}>
+                      <Button 
+                        className="bg-blue-600 hover:bg-blue-700 text-white"
+                      >
+                        Learn More
+                        <ArrowRight className="h-4 w-4 ml-2" />
+                      </Button>
+                    </Link>
                   </div>
 
                   {/* Service Image */}

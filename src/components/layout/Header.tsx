@@ -6,11 +6,11 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Menu, 
-  Shield, 
-  Phone, 
-  Mail, 
+import {
+  Menu,
+  Shield,
+  Phone,
+  Mail,
   PhoneCall,
   X
 } from "lucide-react";
@@ -56,27 +56,26 @@ export function Header() {
   ];
 
   return (
-    <header 
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100" 
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
+          ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100"
           : "bg-transparent"
-      }`}
+        }`}
     >
-      <div className="container mx-auto px-4 lg:px-6">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+      <div className="container mx-auto px-4 lg:px-6 pt-3">
+        <div className="flex items-center justify-between">
           {/* Logo and Company Name */}
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="flex items-center space-x-2 group"
             onClick={() => scrollToSection("hero")}
           >
-            <Image 
-              src="/bK-SECURITY-LOGO-WHITE-BG.png" 
-              alt="BK Security" 
-              width={120}
-              height={60}
-              className="h-12 w-auto"
+            <Image
+              src="/logo.jpg"
+              alt="BK Security"
+              width={300}
+              height={200}
+              className="h-20 w-full"
             />
           </Link>
 
@@ -88,13 +87,12 @@ export function Header() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    className={`font-medium transition-colors hover:text-blue-600 ${
-                      pathname === item.href
+                    className={`font-medium transition-colors hover:text-blue-600 ${pathname === item.href
                         ? "text-blue-600"
                         : isScrolled
-                        ? "text-gray-700"
-                        : "text-white"
-                    }`}
+                          ? "text-gray-700"
+                          : "text-white"
+                      }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.label}
@@ -111,9 +109,8 @@ export function Header() {
                         scrollToSection(item.href.substring(1));
                       }
                     }}
-                    className={`font-medium transition-colors hover:text-blue-600 ${
-                      isScrolled ? "text-gray-700" : "text-white"
-                    }`}
+                    className={`font-medium transition-colors hover:text-blue-600 ${isScrolled ? "text-gray-700" : "text-white"
+                      }`}
                   >
                     {item.label}
                   </button>
@@ -128,16 +125,15 @@ export function Header() {
               variant="outline"
               size="sm"
               onClick={handleEmailContact}
-              className={`${
-                isScrolled 
-                  ? "border-gray-300 text-gray-700 hover:bg-gray-50" 
+              className={`${isScrolled
+                  ? "border-gray-300 text-gray-700 hover:bg-gray-50"
                   : "border-white/30 text-black hover:bg-white/10"
-              }`}
+                }`}
             >
               <Mail className="h-4 w-4 mr-2" />
               Email
             </Button>
-            
+
             <Button
               onClick={handleEmergencyCall}
               size="sm"
@@ -154,9 +150,8 @@ export function Header() {
               <Button
                 variant="ghost"
                 size="sm"
-                className={`lg:hidden ${
-                  isScrolled ? "text-gray-700" : "text-white"
-                }`}
+                className={`lg:hidden ${isScrolled ? "text-gray-700" : "text-white"
+                  }`}
               >
                 <Menu className="h-6 w-6" />
               </Button>
@@ -166,11 +161,11 @@ export function Header() {
                 {/* Mobile Menu Header */}
                 <div className="flex items-center justify-between pb-6 border-b">
                   <div className="flex items-center space-x-2">
-                    <Image 
-                      src="/bK-SECURITY-LOGO-WHITE-BG.png" 
-                      alt="BK Security" 
-                      width={40}
-                      height={20}
+                    <Image
+                      src="/logo.jpg"
+                      alt="BK Security"
+                      width={60}
+                      height={40}
                       className="h-8 w-auto"
                     />
                     <div className="flex flex-col">
@@ -210,11 +205,10 @@ export function Header() {
                         {item.type === "page" ? (
                           <Link
                             href={item.href}
-                            className={`w-full text-left p-3 rounded-lg transition-colors block ${
-                              pathname === item.href
+                            className={`w-full text-left p-3 rounded-lg transition-colors block ${pathname === item.href
                                 ? "text-blue-600 bg-blue-50"
                                 : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
-                            }`}
+                              }`}
                             onClick={() => setMobileMenuOpen(false)}
                           >
                             {item.label}

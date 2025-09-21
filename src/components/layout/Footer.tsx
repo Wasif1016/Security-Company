@@ -96,7 +96,7 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center space-x-2 mb-6">
               <Image 
-                src="/bK-SECURITY-LOGO-WHITE-BG.png" 
+                src="/bK SECURITY LOGO WHITE BG.jpg" 
                 alt="BK Security" 
                 width={80}
                 height={40}

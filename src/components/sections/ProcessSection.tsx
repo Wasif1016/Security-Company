@@ -162,7 +162,7 @@ export function ProcessSection() {
                 variant="outline" 
                 size="lg"
                 onClick={() => window.location.href = "tel:6085933"}
-                className="border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 py-4"
+                className="border-white text-blue-600 hover:bg-white hover:text-blue-600 text-lg px-8 py-4"
               >
                 Call 6085933 Now
               </Button>

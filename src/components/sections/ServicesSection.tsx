@@ -3,6 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { 
   Shield, 
   User, 
@@ -20,6 +21,7 @@ interface ServiceCard {
   description: string;
   features: string[];
   highlight?: boolean;
+  url: string;
 }
 
 export function ServicesSection() {
@@ -41,7 +43,8 @@ export function ServicesSection() {
         "Armed or unarmed options",
         "24/7 availability",
         "Immediate response"
-      ]
+      ],
+      url: "/services/armed-unarmed-security"
     },
     {
       id: "bodyguard",
@@ -54,7 +57,8 @@ export function ServicesSection() {
         "Travel security",
         "Family protection"
       ],
-      highlight: true
+      highlight: true,
+      url: "/services/executive-bodyguard"
     },
     {
       id: "cash-transit",
@@ -66,7 +70,8 @@ export function ServicesSection() {
         "Bank transfers",
         "High-value transport",
         "Insurance coverage"
-      ]
+      ],
+      url: "/services/cash-in-transit"
     },
     {
       id: "monitoring",
@@ -78,7 +83,8 @@ export function ServicesSection() {
         "Instant response",
         "Camera surveillance",
         "Real-time alerts"
-      ]
+      ],
+      url: "/services/alarm-camera-monitoring"
     },
     {
       id: "transportation",
@@ -90,7 +96,8 @@ export function ServicesSection() {
         "Armed options available",
         "Luxury vehicles",
         "Route planning"
-      ]
+      ],
+      url: "/services/chauffeurs"
     }
   ];
 
@@ -183,19 +190,20 @@ export function ServicesSection() {
                     </div>
                     
                     {/* CTA Button */}
-                    <Button 
-                      onClick={scrollToContact}
-                      variant={service.highlight ? "secondary" : "outline"}
-                      size="sm"
-                      className={`w-full text-xs ${
-                        service.highlight 
-                          ? "bg-white text-blue-600 hover:bg-gray-100" 
-                          : "border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
-                      }`}
-                    >
-                      Learn More
-                      <ArrowRight className="h-3 w-3 ml-1" />
-                    </Button>
+                    <Link href={service.url}>
+                      <Button 
+                        variant={service.highlight ? "secondary" : "outline"}
+                        size="sm"
+                        className={`w-full text-xs ${
+                          service.highlight 
+                            ? "bg-white text-blue-600 hover:bg-gray-100" 
+                            : "border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
+                        }`}
+                      >
+                        Learn More
+                        <ArrowRight className="h-3 w-3 ml-1" />
+                      </Button>
+                    </Link>
                   </CardContent>
                 </Card>
               );
@@ -270,19 +278,20 @@ export function ServicesSection() {
                       </div>
                       
                       {/* CTA Button */}
-                      <Button 
-                        onClick={scrollToContact}
-                        variant={service.highlight ? "secondary" : "outline"}
-                        size="sm"
-                        className={`w-full text-xs ${
-                          service.highlight 
-                            ? "bg-white text-blue-600 hover:bg-gray-100" 
-                            : "border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
-                        }`}
-                      >
-                        Learn More
-                        <ArrowRight className="h-3 w-3 ml-1" />
-                      </Button>
+                      <Link href={service.url}>
+                        <Button 
+                          variant={service.highlight ? "secondary" : "outline"}
+                          size="sm"
+                          className={`w-full text-xs ${
+                            service.highlight 
+                              ? "bg-white text-blue-600 hover:bg-gray-100" 
+                              : "border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
+                          }`}
+                        >
+                          Learn More
+                          <ArrowRight className="h-3 w-3 ml-1" />
+                        </Button>
+                      </Link>
                     </CardContent>
                   </Card>
                 );
@@ -315,7 +324,7 @@ export function ServicesSection() {
                 variant="outline" 
                 size="lg"
                 onClick={() => window.location.href = "tel:6085933"}
-                className="border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 py-4"
+                className="border-white text-blue-600 hover:bg-white hover:text-blue-600 text-lg px-8 py-4"
               >
                 Call 6085933
               </Button>
