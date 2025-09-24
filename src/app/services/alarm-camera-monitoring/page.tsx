@@ -18,7 +18,7 @@ import {
 
 export default function AlarmCameraMonitoringPage() {
   const handleEmergencyCall = () => {
-    window.location.href = "tel:6085933";
+    window.location.href = "tel:+5926085933";
   };
 
   const handleConsultation = () => {
@@ -68,7 +68,7 @@ export default function AlarmCameraMonitoringPage() {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="relative py-24 bg-gradient-to-r from-gray-900 to-black text-white overflow-hidden">
+        <section className="relative py-32 bg-gradient-to-r from-gray-900 to-black text-white overflow-hidden">
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 lg:px-6 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -95,10 +95,10 @@ export default function AlarmCameraMonitoringPage() {
                     onClick={handleEmergencyCall}
                     size="lg" 
                     variant="outline"
-                    className="border-white text-white hover:bg-white hover:text-gray-900"
+                    className="border-white text-black hover:bg-white hover:text-gray-900"
                   >
                     <Phone className="h-5 w-5 mr-2" />
-                    Call 6085933
+                    Call Us
                   </Button>
                 </div>
               </div>
@@ -116,7 +116,7 @@ export default function AlarmCameraMonitoringPage() {
 
         {/* Why Choose This Service */}
         <section className="py-20 bg-white">
-          <div className="container mx-auto px-4 lg:px-6">
+          <div className="container mx-auto px-4 lg:px-2">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Why Choose This Service
@@ -126,7 +126,7 @@ export default function AlarmCameraMonitoringPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {whyPoints.map((item, index) => (
                 <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow">
                   <CardContent className="pt-6">
@@ -146,29 +146,7 @@ export default function AlarmCameraMonitoringPage() {
           </div>
         </section>
 
-        {/* What You Get */}
-        <section className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4 lg:px-6">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                What You Get
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {features.map((feature, index) => (
-                <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
-                  <CardContent className="pt-6">
-                    <div className="flex items-center space-x-3">
-                      <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700 leading-relaxed">{feature}</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
+      
 
         {/* CTA Section */}
         <section className="py-20 bg-gradient-to-r from-gray-900 to-black text-white">
@@ -178,7 +156,7 @@ export default function AlarmCameraMonitoringPage() {
                 Keep eyes on your property 24/7
               </h2>
               <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                📹 Keep eyes on your property 24/7. Call 6085933 or request a free consultation today.
+                📹 Keep eyes on your property 24/7. Call +592 608 5933 or request a free consultation today.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
@@ -193,10 +171,10 @@ export default function AlarmCameraMonitoringPage() {
                   onClick={handleEmergencyCall}
                   size="lg" 
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-gray-900"
+                  className="border-white text-black hover:bg-white hover:text-gray-900"
                 >
                   <Phone className="h-5 w-5 mr-2" />
-                  Call 6085933
+                  Call Us
                 </Button>
               </div>
             </div>

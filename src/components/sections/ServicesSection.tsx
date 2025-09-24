@@ -90,14 +90,14 @@ export function ServicesSection() {
       id: "transportation",
       icon: Car,
       title: "Secure Transportation",
-      description: "Security-trained chauffeurs for executive and high-risk transportation needs.",
+      description: "Security-trained chauffeurs and armored options for executive and high-risk transportation.",
       features: [
         "Security-trained drivers",
         "Armed options available",
-        "Luxury vehicles",
+        "Luxury & armored vehicles",
         "Route planning"
       ],
-      url: "/services/chauffeurs"
+      url: "/services/secure-transportation"
     }
   ];
 
@@ -106,19 +106,29 @@ export function ServicesSection() {
   const secondRowServices = services.slice(3, 5);
 
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="services" className="py-24 bg-gradient-to-b from-white to-blue-50/40">
       <div className="container mx-auto px-4 lg:px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4 text-blue-600 border-blue-600">
-            Our Services
+            Services
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Complete Security Solutions
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Professional security services tailored to protect what matters most to you.
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+              Complete Security Solutions
+            </h2>
+            <Link href="/services" className="hidden md:inline-flex text-sm font-medium text-blue-600 hover:text-blue-700 underline underline-offset-4">
+              View all services
+            </Link>
+          </div>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Modern, reliable and scalable protection—delivered by licensed professionals across on-site, mobile and remote services.
           </p>
+          <div className="mt-4 md:hidden">
+            <Link href="/services" className="text-sm font-medium text-blue-600 hover:text-blue-700 underline underline-offset-4">
+              View all services
+            </Link>
+          </div>
         </div>
 
         {/* Services Grid - 3-2 Layout */}
@@ -130,10 +140,10 @@ export function ServicesSection() {
               return (
                 <Card 
                   key={service.id} 
-                  className={`group hover:shadow-xl transition-all duration-300 border-0 h-full w-full ${
+                  className={`group hover:shadow-xl transition-all duration-300 border-0 h-full w-full rounded-2xl ${
                     service.highlight 
                       ? "bg-gradient-to-br from-blue-600 to-blue-700 text-white" 
-                      : "bg-gray-50 hover:bg-white"
+                      : "bg-white/60 backdrop-blur-sm hover:bg-white"
                   }`}
                 >
                   <CardHeader className="text-center pb-4">
@@ -158,10 +168,12 @@ export function ServicesSection() {
                     )}
 
                     {/* Title */}
-                    <CardTitle className={`text-lg font-semibold mb-3 text-center ${
+                    <CardTitle className={`text-lg font-semibold mb-3 text-center group-hover:tracking-tight transition-all ${
                       service.highlight ? "text-white" : "text-gray-900"
                     }`}>
-                      {service.title}
+                      <Link href={service.url} className={`hover:text-blue-600 ${service.highlight ? "hover:text-white/90" : ""}`}>
+                        {service.title}
+                      </Link>
                     </CardTitle>
 
                     {/* Description */}
@@ -190,7 +202,7 @@ export function ServicesSection() {
                     </div>
                     
                     {/* CTA Button */}
-                    <Link href={service.url}>
+                      <Link href={service.url}>
                       <Button 
                         variant={service.highlight ? "secondary" : "outline"}
                         size="sm"
@@ -200,7 +212,7 @@ export function ServicesSection() {
                             : "border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
                         }`}
                       >
-                        Learn More
+                        View Service
                         <ArrowRight className="h-3 w-3 ml-1" />
                       </Button>
                     </Link>
@@ -218,10 +230,10 @@ export function ServicesSection() {
                 return (
                   <Card 
                     key={service.id} 
-                    className={`group hover:shadow-xl transition-all duration-300 border-0 h-full w-full ${
+                    className={`group hover:shadow-xl transition-all duration-300 border-0 h-full w-full rounded-2xl ${
                       service.highlight 
                         ? "bg-gradient-to-br from-blue-600 to-blue-700 text-white" 
-                        : "bg-gray-50 hover:bg-white"
+                        : "bg-white/60 backdrop-blur-sm hover:bg-white"
                     }`}
                   >
                     <CardHeader className="text-center pb-4">
@@ -246,10 +258,12 @@ export function ServicesSection() {
                       )}
 
                       {/* Title */}
-                      <CardTitle className={`text-lg font-semibold mb-3 text-center ${
+                      <CardTitle className={`text-lg font-semibold mb-3 text-center group-hover:tracking-tight transition-all ${
                         service.highlight ? "text-white" : "text-gray-900"
                       }`}>
-                        {service.title}
+                        <Link href={service.url} className={`hover:text-blue-600 ${service.highlight ? "hover:text-white/90" : ""}`}>
+                          {service.title}
+                        </Link>
                       </CardTitle>
 
                       {/* Description */}
@@ -288,7 +302,7 @@ export function ServicesSection() {
                               : "border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
                           }`}
                         >
-                          Learn More
+                          View Service
                           <ArrowRight className="h-3 w-3 ml-1" />
                         </Button>
                       </Link>
@@ -323,10 +337,10 @@ export function ServicesSection() {
               <Button 
                 variant="outline" 
                 size="lg"
-                onClick={() => window.location.href = "tel:6085933"}
+                onClick={() => window.location.href = "tel:+5926085933"}
                 className="border-white text-blue-600 hover:bg-white hover:text-blue-600 text-lg px-8 py-4"
               >
-                Call 6085933
+                Call Us
               </Button>
             </div>
           </div>

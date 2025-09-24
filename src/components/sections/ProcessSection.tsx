@@ -1,12 +1,12 @@
-"use client"  
+"use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { 
-  MessageSquare, 
-  FileText, 
-  Play, 
+import {
+  MessageSquare,
+  FileText,
+  Play,
   Headphones,
   ArrowRight,
   CheckCircle
@@ -76,7 +76,7 @@ export function ProcessSection() {
             How We Deliver Professional Security Solutions
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Our proven 4-step process ensures you receive the most effective security solution 
+            Our proven 4-step process ensures you receive the most effective security solution
             tailored to your specific needs, implemented seamlessly and supported continuously.
           </p>
         </div>
@@ -85,10 +85,10 @@ export function ProcessSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {processSteps.map((step, index) => {
             const IconComponent = step.icon;
-            
+
             return (
               <Card key={step.step} className="relative group hover:shadow-xl transition-all duration-300 border-0 bg-white">
-                <CardHeader className="text-center pb-4">
+                <CardHeader className="text-center flex flex-col justify-center item-center pb-4">
                   {/* Step Number & Icon */}
                   <div className="relative mx-auto mb-4">
                     <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -100,9 +100,9 @@ export function ProcessSection() {
                   </div>
 
                   {/* Timeline Badge */}
-                  <Badge variant="secondary" className="mb-3 text-xs bg-blue-50 text-blue-700 border-blue-200">
+                  <div className="flex justify-center items-center w-full"> <Badge variant="secondary" className="mb-3 text-xs bg-blue-50 text-blue-700 border-blue-200">
                     {step.timeline}
-                  </Badge>
+                  </Badge></div>
 
                   {/* Title */}
                   <CardTitle className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
@@ -145,11 +145,11 @@ export function ProcessSection() {
               Ready to Get Started?
             </h3>
             <p className="text-blue-100 mb-8 max-w-2xl mx-auto text-lg">
-              Take the first step towards better security. Schedule your free consultation today 
+              Take the first step towards better security. Schedule your free consultation today
               and let us show you how we can protect what matters most to you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
+              <Button
                 onClick={scrollToContact}
                 variant="secondary"
                 size="lg"
@@ -158,10 +158,10 @@ export function ProcessSection() {
                 Schedule Free Consultation
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Button>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 size="lg"
-                onClick={() => window.location.href = "tel:6085933"}
+                onClick={() => window.location.href = "tel:+5926085933"}
                 className="border-white text-blue-600 hover:bg-white hover:text-blue-600 text-lg px-8 py-4"
               >
                 Call 6085933 Now

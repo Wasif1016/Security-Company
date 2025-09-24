@@ -1,16 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { sendMail } from '@/lib/email';
 
-// Configure Brevo SMTP
-const transporter = nodemailer.createTransport({
-  host: 'smtp-relay.brevo.com',
-  port: 587,
-  secure: false,
-  auth: {
-    user: '7ef4cc002@smtp-brevo.com',
-    pass: 'bWIq36KCzQPRkBsM'
-  }
-});
+export const runtime = 'nodejs';
 
 export async function POST(request: NextRequest) {
   try {
@@ -63,11 +54,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Send email
-    const mailOptions = {
-      from: '7ef4cc002@smtp-brevo.com',
-      to: 'wasifdevelopsite@gmail.com',
-      subject: `New Employment Application - ${data.firstName} ${data.surname}`,
-      html: `
+    const to = process.env.APPLICATIONS_TO || 'wasifdevelopsite@gmail.com';
+    const subject = `New Employment Application - ${data.firstName} ${data.surname}`;
+    const html = `
         <h2>New Employment Application Received</h2>
         <p><strong>Applicant:</strong> ${data.firstName} ${data.surname}</p>
         <p><strong>Position:</strong> ${data.positionApplying}</p>
@@ -84,11 +73,14 @@ export async function POST(request: NextRequest) {
         </ul>
         
         <p>Please find the complete application form and all supporting documents attached.</p>
-      `,
-      attachments
-    };
+      `;
 
-    await transporter.sendMail(mailOptions);
+    await sendMail({
+      to,
+      subject,
+      html,
+      attachments,
+    });
     
     return NextResponse.json(
       { 
@@ -98,7 +90,7 @@ export async function POST(request: NextRequest) {
       { status: 200 }
     );
   } catch (error) {
-    console.error('Error processing application:', error);
+    console.error('APPLICATION_SUBMIT_ERROR', error);
     
     return NextResponse.json(
       { 

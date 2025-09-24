@@ -11,11 +11,11 @@ import {
 
 export function HeroSection() {
   const handleEmergencyCall = () => {
-    window.location.href = "tel:6085933";
+    window.location.href = "tel:+5926085933";
   };
 
   const handleEmailContact = () => {
-    window.location.href = "mailto:secure4587";
+    window.location.href = "mailto:secure4587@gmail.com";
   };
 
   const scrollToContact = () => {
@@ -59,7 +59,7 @@ export function HeroSection() {
               className="bg-blue-600 hover:bg-blue-700 text-white emergency-pulse text-lg px-8 py-4"
             >
               <PhoneCall className="h-5 w-5 mr-2" />
-              Call Emergency: 6085933
+              Call Us: +592 608 5933
             </Button>
             <Button
               onClick={scrollToContact}

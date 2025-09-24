@@ -22,14 +22,11 @@ import {
 
 export default function ArmedUnarmedSecurityPage() {
   const handleEmergencyCall = () => {
-    window.location.href = "tel:6085933";
+    window.location.href = "tel:+5926085933";
   };
 
   const handleConsultation = () => {
-    const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    window.location.href = "/#contact";
   };
 
   const armedFeatures = [
@@ -45,7 +42,7 @@ export default function ArmedUnarmedSecurityPage() {
       title: "Armed Security Guards",
       description: "Highly trained professionals equipped with firearms for high-risk situations requiring maximum protection.",
       icon: Shield,
-      image: "https://images.unsplash.com/photo-1566492031773-4f4e44671d66?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "Armed Security Guard.jpg",
       features: [
         "Firearms training and certification",
         "Threat assessment and neutralization",
@@ -58,7 +55,7 @@ export default function ArmedUnarmedSecurityPage() {
       title: "Unarmed Security Guards", 
       description: "Professional security personnel providing visible deterrence and protection through presence and communication.",
       icon: User,
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "front-view-guard-men-team-work.jpg",
       features: [
         "Conflict resolution training",
         "Access control and monitoring",
@@ -97,9 +94,9 @@ export default function ArmedUnarmedSecurityPage() {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="relative py-24 bg-gradient-to-r from-blue-600 to-blue-800 text-white overflow-hidden">
+        <section className="relative py-24 pt-4 bg-gradient-to-r from-blue-600 to-blue-800 text-white overflow-hidden">
           <div className="absolute inset-0 bg-black/20"></div>
-          <div className="container mx-auto px-4 lg:px-6 relative z-10">
+          <div className="container mx-auto px-4 lg:px-6 py-32 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <Badge variant="secondary" className="mb-4 bg-white/20 text-white border-white/30">
@@ -125,16 +122,16 @@ export default function ArmedUnarmedSecurityPage() {
                     onClick={handleEmergencyCall}
                     size="lg" 
                     variant="outline"
-                    className="border-white text-white hover:bg-white hover:text-blue-600"
+                    className="border-white text-navy-600 hover:bg-white hover:text-blue-600"
                   >
                     <Phone className="h-5 w-5 mr-2" />
-                    Call 6085933
+                    Call Us
                   </Button>
                 </div>
               </div>
               <div className="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  src="front-view-guard-men-team-work.jpg"
                   alt="Professional Security Guards"
                   className="w-full h-96 lg:h-[500px] object-cover rounded-2xl shadow-2xl"
                 />
@@ -156,9 +153,9 @@ export default function ArmedUnarmedSecurityPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {whyChooseUs.map((item, index) => (
-                <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow">
+                <Card key={index} className="text-center p-2 hover:shadow-lg transition-shadow">
                   <CardContent className="pt-6">
                     <div className="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mx-auto mb-4">
                       <item.icon className="h-8 w-8 text-blue-600" />
@@ -226,10 +223,10 @@ export default function ArmedUnarmedSecurityPage() {
                     </div>
 
                     <Button 
-                      onClick={handleConsultation}
+                      onClick={handleEmergencyCall}
                       className="bg-blue-600 hover:bg-blue-700 text-white"
                     >
-                      Learn More
+                      Contact Us
                       <ArrowRight className="h-4 w-4 ml-2" />
                     </Button>
                   </div>
@@ -359,7 +356,7 @@ export default function ArmedUnarmedSecurityPage() {
                 Ready to Secure Your Property?
               </h2>
               <p className="text-lg text-blue-100 mb-8 leading-relaxed">
-                Call 6085933 or click below to schedule your Free Security Consultation. Our team will assess your needs and provide a customized security solution.
+                Call +592 608 5933 or click below to schedule your Free Security Consultation. Our team will assess your needs and provide a customized security solution.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -369,16 +366,16 @@ export default function ArmedUnarmedSecurityPage() {
                   className="bg-white text-blue-600 hover:bg-gray-100"
                 >
                   <Phone className="h-5 w-5 mr-2" />
-                  Call 6085933
+                  Call Us
                 </Button>
                 <Button 
                   onClick={handleConsultation}
                   size="lg" 
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-blue-600"
+                  className="border-white text-blue-600 hover:bg-white hover:text-blue-900"
                 >
                   Get Free Consultation
-                  <ArrowRight className="h-5 w-5 ml-2" />
+                  <ArrowRight className="h-5 w-5 ml-2" color="blue" />
                 </Button>
               </div>
 

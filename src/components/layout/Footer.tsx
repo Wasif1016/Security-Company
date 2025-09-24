@@ -21,11 +21,11 @@ export function Footer() {
   const pathname = usePathname();
   
   const handleEmergencyCall = () => {
-    window.location.href = "tel:6085933";
+    window.location.href = "tel:+5926085933";
   };
 
   const handleEmailContact = () => {
-    window.location.href = "mailto:secure4587";
+    window.location.href = "mailto:secure4587@gmail.com";
   };
 
   const scrollToSection = (sectionId: string) => {
@@ -40,7 +40,7 @@ export function Footer() {
     { name: "Executive Bodyguards", href: "/services/executive-bodyguard" },
     { name: "Cash in Transit", href: "/services/cash-in-transit" },
     { name: "24/7 Monitoring", href: "/services/alarm-camera-monitoring" },
-    { name: "Secure Transportation", href: "/services" },
+    { name: "Secure Transportation", href: "/services/secure-transportation" },
     { name: "Armed & Unarmed Chauffeurs", href: "/services/chauffeurs" }
   ];
 
@@ -73,7 +73,7 @@ export function Footer() {
                 className="bg-white text-blue-600 hover:bg-gray-100"
               >
                 <PhoneCall className="h-4 w-4 mr-2" />
-                Call 6085933
+                Call Us
               </Button>
               <Button
                 onClick={handleEmailContact}
@@ -96,20 +96,17 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center space-x-2 mb-6">
               <Image 
-                src="/bK SECURITY LOGO WHITE BG.jpg" 
+                src="/logo.jpg" 
                 alt="BK Security" 
                 width={80}
                 height={40}
-                className="h-10 w-auto"
+                className="h-20 w-auto"
               />
-              <div className="flex flex-col">
-                <span className="font-bold text-xl text-white">BK Security</span>
-                <span className="text-sm text-blue-400">Services</span>
-              </div>
+             
             </Link>
 
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Professional Security Solutions You Can Trust. Protecting what matters most to you with experienced, licensed, and insured security professionals.
+              Professional Security Solutions You Can Trust. Protecting what matters most to you.
             </p>
 
             {/* Certifications */}
@@ -235,7 +232,7 @@ export function Footer() {
                     onClick={handleEmergencyCall}
                     className="text-blue-400 hover:text-blue-300 transition-colors"
                   >
-                    6085933
+                    +592 608 5933
                   </button>
                   <p className="text-xs text-gray-400">24/7 Response</p>
                 </div>

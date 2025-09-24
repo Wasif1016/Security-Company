@@ -57,7 +57,7 @@ export default function EmploymentApplicationPage() {
         <main className="py-20 bg-gray-50">
           <div className="container mx-auto px-4 lg:px-6">
             <div className="max-w-2xl mx-auto text-center">
-              <div className="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+              <div className="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 mt-0">
                 <CheckCircle className="h-10 w-10 text-green-600" />
               </div>
               <h1 className="text-3xl font-bold text-gray-900 mb-4">
@@ -84,7 +84,7 @@ export default function EmploymentApplicationPage() {
     <div className="min-h-screen">
       <Header />
       <main className="py-12 bg-gray-50">
-        <div className="container mx-auto px-4 lg:px-6">
+        <div className="container mx-auto px-4 lg:px-6 py-32">
         {/* Header */}
         <div className="text-center mb-12">
           <Badge variant="secondary" className="mb-4 bg-navy-100 text-navy-800 border-navy-200">

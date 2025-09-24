@@ -57,21 +57,21 @@ export function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setSubmitStatus("success");
-      setIsSubmitting(false);
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        service: "",
-        urgency: "normal",
-        message: ""
+    setSubmitStatus("idle");
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       });
-    }, 1500);
+      if (!res.ok) throw new Error('Request failed');
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", phone: "", service: "", urgency: "normal", message: "" });
+    } catch (err) {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const services = [
@@ -124,6 +124,13 @@ export function ContactSection() {
                     <AlertDescription className="text-green-700">
                       Thank you! Your consultation request has been submitted. 
                       We'll contact you within 2 hours during business hours.
+                    </AlertDescription>
+                  </Alert>
+                )}
+                {submitStatus === "error" && (
+                  <Alert className="mb-6 bg-red-50 border-red-200">
+                    <AlertDescription className="text-red-700">
+                      Something went wrong. Please try again.
                     </AlertDescription>
                   </Alert>
                 )}
